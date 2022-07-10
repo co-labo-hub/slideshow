@@ -6,5 +6,5 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: |
-          ls -al
+          sudo apt-get install ffmpeg
           ffmpeg -y -r 0.2 -i %d.jpg -i bgm.mp3 -vcodec libx264 -pix_fmt yuv420p -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" -r 30 out.mp4
