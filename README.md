@@ -14,3 +14,10 @@ Github Acitons 学習用
 ### 出力
 動画の生成が終わると下記ファイル名で push します。  
 out.mp4
+
+### サンプル
+画像を拝借  
+https://www.pakutaso.com/category.html  
+  
+BGMを拝借  
+https://dova-s.jp/bgm/play15804.html  
