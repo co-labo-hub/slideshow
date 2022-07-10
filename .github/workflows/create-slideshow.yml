@@ -4,7 +4,16 @@ jobs:
   check-bats-version:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - run: |
-          sudo apt-get install ffmpeg
-          ffmpeg -y -r 0.2 -i %d.jpg -i bgm.mp3 -vcodec libx264 -pix_fmt yuv420p -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" -r 30 out.mp4
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: install
+        run: sudo apt-get install ffmpeg
+      - name: create
+        run: ffmpeg -y -r 0.2 -i %d.jpg -i bgm.mp3 -vcodec libx264 -pix_fmt yuv420p -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2" -r 30 out.mp4
+      - name: push
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add .
+          git commit -m "generated"
+          git push
